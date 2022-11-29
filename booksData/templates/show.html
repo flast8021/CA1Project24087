@@ -1,0 +1,39 @@
+<!--This webpage will display/show the database collection and will give user option of editing/deleting a
+book record.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        {% load static %}
+    <title>Books Records</title>
+    <link rel="stylesheet" href="{% static '../static/style.css' %}"/>
+</head>
+<body>
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+    <tr>
+        <th>Book ID</th>
+        <th>Book Name</th>
+        <th>Book Availability</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for Library in books %}
+    <tr>
+        <td>{{ Library.bookId }}</td>
+        <td>{{ Library.bookName }}</td>
+        <td>{{ Library.bookAvailability }}</td>
+        <td>
+            <a href="/edit/{{ Library.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
+            <a href="/delete/{{ Library.id }}">Delete</a>
+        </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<center><a href="/book" class="btn btn-primary">Add New Record</a></center>
+</body>
+</html>

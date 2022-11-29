@@ -1,0 +1,54 @@
+<!--This file is to update/edit the books details, it's to update an existing record of a book
+in our DB collection -->
+
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <title>Index</title>
+    <link rel="stylesheet" href="{% static '../static/style.css' %}"/>
+</head>
+<body>
+<form method="POST" class="post-form" action="/update/{{book.id}}">
+        {% csrf_token %}
+    <div class="container">
+<br>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <h3>Update Details</h3>
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Book Id:</label>
+    <div class="col-sm-4">
+        <input type="text" name="bookId" id="id_bid" required maxlength="20" value="{{ Library.bookId }}"/>
+        </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Book Name:</label>
+    <div class="col-sm-4">
+        <input type="text" name="bookName" id="id_bookName" required maxlength="100" value="{{ Library.bookName }}" />
+         </div>
+  </div>
+
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Book Availability:</label>
+    <div class="col-sm-4">
+        <input type="text" name="bookAvailability" id="id_bookAvailability" maxlength="3" value="{{ form.bookAvailability }}" />
+        note: Leave this field empty if book is not in stock.
+    </div>
+
+
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <button type="submit" class="btn btn-success">Update</button>
+    </div>
+  </div>
+    </div>
+</form>
+</body>
+</html>>

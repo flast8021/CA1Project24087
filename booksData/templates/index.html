@@ -1,0 +1,49 @@
+<!--This file is to get the books details, it's to add a new record of a book in our DB collection -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        {% load static %}
+    <title>Index</title>
+        <link rel="stylesheet" href="{% static '../static/style.css' %}"/>
+</head>
+<body>
+<form method="POST" class="post-form" action="/book">
+        {% csrf_token %}
+    <div class="container">
+<br>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <h3>Enter Details</h3>
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Book Id:</label>
+    <div class="col-sm-4">
+      {{ form.bookId }}
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Book Name:</label>
+    <div class="col-sm-4">
+      {{ form.bookName }}
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Book Availability:</label>
+    <div class="col-sm-4">
+        {{ form.bookAvailability }}
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+    </div>
+</form>
+</body>
+</html>
