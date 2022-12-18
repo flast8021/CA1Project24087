@@ -15,12 +15,16 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.views.generic.base import TemplateView
 from booksData import views
 
 #urls to access our online application and to perform CURD operations
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include("django.contrib.auth.urls")),
+    path('accounts/', include("accounts.urls")),
+    path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('book', views.book),
     path('show',views.show),
     path('edit/<int:id>', views.edit),
